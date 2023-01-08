@@ -1,11 +1,15 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+
+import Home from "./pages/home/index";
+import Decoration from "./pages/decoration/index";
 
 function App() {
   return (
-    <div className="App">
-      Hello
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/decoration" element={<Decoration />} />
+    </Routes>
   );
 }
 
