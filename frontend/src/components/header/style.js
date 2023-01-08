@@ -8,4 +8,5 @@ export const Container = styled.div`
   justify-content: center;
   border-bottom: 1px solid black;
   font-size: 30px;
+  margin-bottom: 20px;
 `;
