@@ -1,11 +1,12 @@
-body {
-  margin: 0;
+*{
   font-family: 'Noto Sans KR', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin:0;
+  padding:0;
+  font-size: 14px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  min-width: 360px;
+  max-width: 768px;
 }
+
