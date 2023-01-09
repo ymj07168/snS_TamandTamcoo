@@ -19,7 +19,7 @@ const Index = () => {
     } else if (params.message === "") {
       alert("메세지를 입력해주세요");
     } else {
-      navigate("/");
+      navigate("/complete");
     }
   };
 
