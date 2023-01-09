@@ -9,6 +9,10 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
+  & > a {
+    width: 100%;
+  }
+
   & > .container__title {
     font-size: 20px;
     font-weight: 500;
