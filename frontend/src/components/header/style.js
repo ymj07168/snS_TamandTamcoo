@@ -9,4 +9,10 @@ export const Container = styled.div`
   border-bottom: 1px solid black;
   font-size: 30px;
   margin-bottom: 20px;
+  position: relative;
+  & > a {
+    position: absolute;
+    left: 0;
+    top: 20px;
+  }
 `;
