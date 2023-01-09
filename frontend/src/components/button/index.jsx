@@ -3,9 +3,9 @@ import React from "react";
 //style
 import { Container } from "./style";
 
-const index = (props) => {
+const Index = (props) => {
   const { text, style } = props;
   return <Container style={style}>{text}</Container>;
 };
 
-export default index;
+export default Index;

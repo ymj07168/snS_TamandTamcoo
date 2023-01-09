@@ -8,7 +8,7 @@ import Button from "../../components/button/index";
 //style
 import { Container } from "./style";
 
-const index = () => {
+const Index = () => {
   return (
     <Container>
       <Header text={"탐라 꾸미기"} />
@@ -17,9 +17,11 @@ const index = () => {
       <Link to="/sticker-select">
         <Button text={"스티커 선택하기"} style={{ marginBottom: "10px" }} />
       </Link>
-      <Button text={"메세지 작성하기"} />
+      <Link to="/message">
+        <Button text={"메세지 작성하기"} />
+      </Link>
     </Container>
   );
 };
 
-export default index;
+export default Index;

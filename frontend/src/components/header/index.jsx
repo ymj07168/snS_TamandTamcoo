@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 //style
 import { Container } from "./style";
 
-const index = (props) => {
+const Index = (props) => {
   const { text, link } = props;
   return (
     <Container>
@@ -17,4 +17,4 @@ const index = (props) => {
   );
 };
 
-export default index;
+export default Index;

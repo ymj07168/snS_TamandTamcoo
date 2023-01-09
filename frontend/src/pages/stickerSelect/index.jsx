@@ -6,7 +6,7 @@ import Header from "../../components/header/index";
 //style
 import { Container } from "./style";
 
-const index = () => {
+const Index = () => {
   const imgList = [
     "https://png.pngtree.com/png-vector/20190130/ourmid/pngtree-autumn-maple-leaf-element-design-leaf-elementautumn-leavesautumn-png-image_602484.jpg",
     "https://png.pngtree.com/png-vector/20210923/ourmid/pngtree-autumn-leaves-border-hello-october-greeting-png-image_3952783.png",
@@ -26,4 +26,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
