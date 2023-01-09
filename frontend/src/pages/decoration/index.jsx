@@ -11,7 +11,10 @@ const index = () => {
   return (
     <Container>
       <Header text={"탐라 꾸미기"} />
-      <Button text={"스티커 선택하기"} />
+      <div className="container__title">제목</div>
+      <div className="container__img-wrap">배경이미지</div>
+      <Button text={"스티커 선택하기"} style={{ marginBottom: "10px" }} />
+      <Button text={"메세지 작성하기"} />
     </Container>
   );
 };
