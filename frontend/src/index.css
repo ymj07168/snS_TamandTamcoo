@@ -1,12 +1,17 @@
-*{
-  font-family: 'Noto Sans KR', sans-serif;
-  margin:0;
-  padding:0;
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  padding: 0;
   font-size: 14px;
 }
 
-body{
+body {
   min-width: 360px;
   max-width: 768px;
 }
 
+a {
+  text-decoration: none;
+  outline: none;
+  color: black;
+}
