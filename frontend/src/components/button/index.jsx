@@ -3,9 +3,13 @@ import React from "react";
 //style
 import { Container } from "./style";
 
-const index = (props) => {
-  const { text, style } = props;
-  return <Container style={style}>{text}</Container>;
+const Index = (props) => {
+  const { text, style, onClick } = props;
+  return (
+    <Container style={style} onClick={onClick}>
+      {text}
+    </Container>
+  );
 };
 
-export default index;
+export default Index;
