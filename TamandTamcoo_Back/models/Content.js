@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const contentSchema = mongoose.Schema({
-    id: {
-        type: Number,
-        unique: 1
-    },
     timeline_id: {
         type: Number
     },
