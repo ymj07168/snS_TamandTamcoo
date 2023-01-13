@@ -30,7 +30,7 @@ const Index = () => {
         <input
         placeholder="제목 입력"
         value={params.title}
-        onChange= {(e) => onChangeValue("title", e.target.value)}
+        onChange={(e) => onChangeValue("title", e.target.value)}
         />
         
 
