@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const partsSchema = mongoose.Schema({
-    id: {
-        type: Number,
-        unique: 1
-    },
     image: String,
     loc_x: {
         type: Number,
