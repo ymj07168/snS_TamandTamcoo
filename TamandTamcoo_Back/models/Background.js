@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
 const backgroundSchema = mongoose.Schema({
-    image: String,
-    kind: {
-        type: Number,
-        default: 1
-    }
+    title: String,
+    imgPath: String,
+    category: Number
 })
 
 
-const Parts = mongoose.model('Background', backgroundSchema)
+const Background = mongoose.model('Background', backgroundSchema)
 
 module.exports = { Background }

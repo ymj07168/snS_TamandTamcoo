@@ -19,6 +19,7 @@ app.use(cookieParser());
 
 
 app.use('/api/users', require('./routes/users'));
+app.use('/auth/backgrounds', require('./routes/backgrounds'))
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
