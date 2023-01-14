@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //component
 import Header from "../../components/header/index";
@@ -11,13 +12,13 @@ const Index = () => {
     
     return (
     <Container>
-        <Header text={"타임라인"} link={"/decoration"} />
-        
-        <Button
-        text={"타임라인 추가하기"}
-        style={{ marginBottom: "10px" }}
-        onClick={handleCompleteButton}
-        />
+        <Header text={"타임라인"} link={"/"} />
+        <Link to ="/creation">
+            <Button
+            text={"타임라인 추가하기"}
+            style={{ marginBottom: "10px" }}
+            />
+        </Link>
     </Container>
     );
 };
