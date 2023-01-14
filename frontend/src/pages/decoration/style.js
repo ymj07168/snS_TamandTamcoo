@@ -35,6 +35,8 @@ export const Container = styled.div`
     position: relative;
 
     & > .img-wrap__sticker {
+      width: 100px;
+      height: 100px;
       position: absolute;
     }
   }
