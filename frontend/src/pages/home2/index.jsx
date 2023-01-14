@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
+import logo from './logo.png';
 //component
 import Header from "../../components/header/index";
 import Button from "../../components/button/index";
@@ -14,20 +14,16 @@ const Index = () => {
     <Container>
       <Header text = {"탐앤탐꾸"} />
 
-      <div className ="container__img-wrap">로고 사진</div>
+      <div className ="container__img-wrap">logo</div>
 
       <div sub> 나만의 타임라인을 꾸며줘! </div>
       
       <Button
-        text={"로그인"}
-        style={{ marginBottom: "10px" }} //나중에 수정하기
+        text={"꾸미기"}
+        style={{ marginBottom: "30px" }} //나중에 수정하기
         onClick={handleCompleteButton}
       />
-        <Button
-        text={"회원가입"}
-        style={{ marginBottom: "10px" }} //나중에 수정하기
-        onClick={handleCompleteButton}
-      />
+
     </Container>
   )
 };
