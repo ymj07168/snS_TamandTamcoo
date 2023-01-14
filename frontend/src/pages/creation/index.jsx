@@ -38,7 +38,7 @@ const Index = () => {
         />
         
         <div className="img-wrap">
-        <img source='./bgImg/fall.png' resizeMode="stretch" className='img-wrap__bg'/>
+        <img source='./bgImg/fall.png' className='img-wrap__bg'/>
         </div>
         
         <Button
