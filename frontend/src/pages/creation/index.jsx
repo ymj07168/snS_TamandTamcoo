@@ -35,7 +35,7 @@ const Index = () => {
         
 
         <Button
-        text={"공유하기"}
+        text= {"공유하기"}
         style={{ marginBottom: "10px" }}
         onClick={handleCompleteButton}
         />
