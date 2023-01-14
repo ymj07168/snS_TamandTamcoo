@@ -2,8 +2,10 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+
 //component
 import Button from "../../components/button/index";
+import Header from "../../components/header/index";
 
 //style
 import { Container } from "./style";
@@ -20,6 +22,7 @@ const Index = () => {
         }
     };
 
+
     const onChangeValue = (key, value) => {
     const temp = { ...params, [key]: value };
     setParams(temp);
@@ -27,13 +30,17 @@ const Index = () => {
 
     return (
     <Container>
+        <Header text={"생성하기"} link={"/timeline"} />
         <input
         placeholder="제목 입력"
         value={params.title}
         onChange={(e) => onChangeValue("title", e.target.value)}
         />
         
-
+        <div className="img-wrap">
+        <img source='./bgImg/fall.png' resizeMode="stretch" className='img-wrap__bg'/>
+        </div>
+        
         <Button
         text= {"공유하기"}
         style={{ marginBottom: "10px" }}
