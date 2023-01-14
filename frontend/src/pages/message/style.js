@@ -24,16 +24,6 @@ export const Container = styled.div`
     margin-bottom: 10px;
   }
 
-  & > input::placeholder,
-  textarea::placeholder {
-    color: ${Color.gray};
-  }
-
-  & > input:focus:focus-visible,
-  textarea:focus:focus-visible {
-    border: 2px solid ${Color.blue};
-  }
-
   & > textarea {
     width: 100%;
     height: 300px;

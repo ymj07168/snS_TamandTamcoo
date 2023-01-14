@@ -24,13 +24,16 @@ export const Container = styled.div`
     margin-bottom: 10px;
   }
 
-
   & > .img-wrap {
     width: 100%;
     height: 463px;
     background: ${Color.gray};
     margin-bottom: 20px;
     position: relative;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
   }
-  
 `;

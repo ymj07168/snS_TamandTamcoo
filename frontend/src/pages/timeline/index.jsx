@@ -9,19 +9,14 @@ import Button from "../../components/button/index";
 import { Container } from "./style";
 
 const Index = () => {
-    
-    return (
+  return (
     <Container>
-        <Header text={"타임라인"} link={"/"} />
-        <Link to ="/creation">
-            <Button
-            text={"타임라인 추가하기"}
-            style={{ marginBottom: "10px" }}
-            />
-        </Link>
+      <Header text={"타임라인"} link={"/"} />
+      <Link to="/creation">
+        <Button text={"타임라인 추가하기"} style={{ marginBottom: "10px" }} />
+      </Link>
     </Container>
-    );
+  );
 };
-
 
 export default Index;

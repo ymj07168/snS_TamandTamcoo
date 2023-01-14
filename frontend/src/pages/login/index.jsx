@@ -36,7 +36,7 @@ const Index = () => {
       <Button
         text={"로그인"}
         style={{ marginBottom: "10px" }} //확인 후 수정 
-        onClick={handleCompleteButton}
+        //onClick={handleCompleteButton}
       />
     </Container>
   );
