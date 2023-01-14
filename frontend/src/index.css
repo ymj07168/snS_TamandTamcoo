@@ -22,7 +22,18 @@ textarea {
   -moz-appearance: none;
   appearance: none;
 }
+
 input:focus,
 textarea:focus {
   outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #e6e6e6;
+}
+
+input:focus:focus-visible,
+textarea:focus:focus-visible {
+  border-width: 2px;
 }
