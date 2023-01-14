@@ -8,6 +8,8 @@ import Decoration from "./pages/decoration/index";
 import StickerSelect from "./pages/stickerSelect/index";
 import Message from "./pages/message/index";
 import Complete from "./pages/complete/index";
+import Login from "./pages/login/index";
+import Signup from "./pages/signup/index";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
       <Route path="/sticker-select" element={<StickerSelect />} />
       <Route path="/message" element={<Message />} />
       <Route path="/complete" element={<Complete />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   );
 }

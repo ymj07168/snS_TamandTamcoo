@@ -24,8 +24,6 @@ export const Container = styled.div`
     margin-bottom: 10px;
   }
 
-
-
   & > textarea {
     width: 100%;
     height: 300px;

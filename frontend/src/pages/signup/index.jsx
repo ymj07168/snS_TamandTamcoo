@@ -11,18 +11,22 @@ import { Container } from "./style";
 
 const Index = () => {
   const navigate = useNavigate();
-  const [params, setParams] = useState({ nickname: "", email: "", password:"", check:"" });
+  const [params, setParams] = useState({
+    nickname: "",
+    email: "",
+    password: "",
+    check: "",
+  });
 
   const onChangeValue = (key, value) => {
     const temp = { ...params, [key]: value };
     setParams(temp);
   };
 
-
-  //link 수정하기 
+  //link 수정하기
   return (
     <Container>
-      <Header text={"회원가입"} link={"/decoration"} /> 
+      <Header text={"회원가입"} link={"/decoration"} />
       <input
         placeholder="닉네임"
         value={params.nickname}
@@ -33,12 +37,12 @@ const Index = () => {
         value={params.email}
         onChange={(e) => onChangeValue("email", e.target.value)}
       />
-        <input
+      <input
         placeholder="비밀번호"
         value={params.password}
         onChange={(e) => onChangeValue("password", e.target.value)}
       />
-        <input
+      <input
         placeholder="비밀번호 확인"
         value={params.check}
         onChange={(e) => onChangeValue("check", e.target.value)}
@@ -46,8 +50,8 @@ const Index = () => {
 
       <Button
         text={"가입 완료"}
-        style={{ marginBottom: "10px" }} //확인후 수정 
-        onClick={handleCompleteButton}
+        style={{ marginBottom: "10px" }} //확인후 수정
+        //onClick={handleCompleteButton}
       />
     </Container>
   );
