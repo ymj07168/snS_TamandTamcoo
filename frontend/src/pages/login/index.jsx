@@ -18,26 +18,48 @@ const Index = () => {
     setParams(temp);
   };
 
-  //link 확인
+  //api연동..
+  const handleCompleteButton = () => {
+    if (params.email === "") {
+      alert("이메일을 입력해주세요");
+    } else if (params.message === "") {
+      alert("비밀번호를 입력해주세요");
+    } else {
+      navigate("/home");
+    }
+  };
+
   return (
     <Container>
-      <Header text={"로그인"} link={"/decoration"} />
+      <Header text={"로그인"}/>
       <input
         placeholder="이메일"
         value={params.email}
         onChange={(e) => onChangeValue("email", e.target.value)}
+        style={{ marginTop: "100px" }} 
       />
       <input
-        placeholder="메시지 입력"
+        placeholder="비밀번호"
         value={params.password}
         onChange={(e) => onChangeValue("password", e.target.value)}
+        style={{ marginTop: "30px", marginBottom: "40px" }} 
       />
 
       <Button
         text={"로그인"}
-        style={{ marginBottom: "10px" }} //확인 후 수정 
-        //onClick={handleCompleteButton}
+        style={{ marginBottom: "15px" }}  
+        onClick={handleCompleteButton}
       />
+
+      <div className="others">
+      <img src={"/image/ico/google.png"} width={20} height ={20} paddingRight={20} />
+        구글계정으로 로그인 
+      </div>
+      <div className="others2">
+      <img src={"/image/ico/kakao.png"} width={25} height ={25} marginRight />
+        카카오톡으로 로그인 
+      </div>
+
     </Container>
   );
 };
