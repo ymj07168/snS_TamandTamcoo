@@ -22,7 +22,7 @@ router.get('/', auth, (req, res) => {
         (err, bg) => {
             if (err) return res.json({ success: false, err });
             return res.status(200).send({
-                data: bg
+                backgrounds
             })
         })
 })
