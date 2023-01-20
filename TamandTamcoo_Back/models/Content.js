@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Timeline } = require('./Timeline');
+const { Parts } = require('./Parts');
 
 const contentSchema = mongoose.Schema({
     tid: {
