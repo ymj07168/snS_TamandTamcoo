@@ -1,11 +1,16 @@
 const mongoose = require('mongoose');
+const { Timeline } = require('./Timeline');
+const { Parts } = require('./Parts');
 
 const contentSchema = mongoose.Schema({
-    timeline_id: {
-        type: Number
+    tid: {
+        type: ObjectId,
+        required: true,
+        ref: Timeline
     },
-    parts_id: {
-        type: Array
+    pid: {
+        type: ObjectId,
+        ref: Parts
     },
     title: {
         type: String

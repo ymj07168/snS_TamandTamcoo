@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 
 const timelineSchema = mongoose.Schema({
-    user_id: {
-        type: Number
+    uid: {
+        type: ObjectId,
+        ref: 'User'
     },
-    bg_id: {
-        type: Number
+    bid: {
+        type: ObjectId,
+        ref: 'Background'
     },
     contents: {
         type: Array

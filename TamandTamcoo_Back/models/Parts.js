@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Background } = require('./Background');
 
 const partsSchema = mongoose.Schema({
     image: String,
@@ -10,6 +11,7 @@ const partsSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    category: Number
 })
 
 
