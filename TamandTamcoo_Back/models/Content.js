@@ -4,19 +4,21 @@ const { Parts } = require('./Parts');
 
 const contentSchema = mongoose.Schema({
     tid: {
-        type: ObjectId,
+        type: mongoose.Types.ObjectId,
         required: true,
         ref: Timeline
     },
-    pid: {
-        type: ObjectId,
-        ref: Parts
-    },
-    title: {
-        type: String
-    },
     message: {
         type: String
+    },
+    parts: {
+        type: String
+    },
+    loc_x: {
+        type: Number
+    },
+    loc_y: {
+        type: Number
     }
 })
 
