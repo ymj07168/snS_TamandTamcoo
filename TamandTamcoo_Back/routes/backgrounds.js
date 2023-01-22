@@ -19,7 +19,7 @@ router.get('/auth', auth, (req, res) => {
 // 배경 목록 전체 조회
 router.get('/', auth, (req, res) => {
     Background.find({},
-        (err, bg) => {
+        (err, backgrounds) => {
             if (err) return res.json({ success: false, err });
             return res.status(200).send({
                 backgrounds
