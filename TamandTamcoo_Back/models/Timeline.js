@@ -9,6 +9,9 @@ const timelineSchema = mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Background'
     },
+    title: {
+        type: String
+    },
     contents: {
         type: Array
     }
