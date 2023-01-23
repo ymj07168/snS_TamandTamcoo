@@ -18,4 +18,19 @@ router.post('/create', (req, res) => {
 })
 
 
+// 메시지 수정
+router.post('/update', (req, res) => {
+
+    Content.findOneAndUpdate({ _id: req.body._id },
+        { message: req.body.message },
+        (err, contents) => {
+            if (err) return res.json({ success: false, err });
+            return res.status(200).send({
+                success: true
+            })
+        })
+})
+
+
+
 module.exports = router;
