@@ -12,9 +12,10 @@ const timelineSchema = mongoose.Schema({
     title: {
         type: String
     },
-    contents: {
-        type: Array
-    }
+    contents: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Content'
+    }]
 })
 
 
