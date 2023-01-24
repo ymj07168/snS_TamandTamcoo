@@ -18,7 +18,7 @@ router.get('/auth', auth, (req, res) => {
 
 // 사용자 타임라인 목록 조회 
 router.get('/read', auth, (req, res) => {
-    Timeline.find({ _id: req.user._id },
+    Timeline.find({ uid: req.user._id },
         (err, timelines) => {
             if (err) return res.json({ success: false, err });
             return res.status(200).send({
