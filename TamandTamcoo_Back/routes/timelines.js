@@ -25,6 +25,7 @@ router.get('/read', auth, (req, res) => {
                 timelines
             })
         })
+        .populate('contents')
 })
 
 // 타임라인 생성
