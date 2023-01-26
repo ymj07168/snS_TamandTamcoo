@@ -26,14 +26,18 @@ const Index = () => {
   }, []);
 
   const getDetail = async () => {
-    const res = await axios.get(`/api/timelines/63cf79cea8ef1d038b790764`);
-    setDetail(res.timelines);
+    try {
+      const res = await axios.get(`/api/timelines/63cf79cea8ef1d038b790764`);
+      setDetail(res.data.timelines[0]);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <Container position={position}>
       <Header text={"탐라 꾸미기"} />
-      <div className="container__title">제목</div>
+      <div className="container__title">{detail?.title}</div>
       <div className="img-wrap">
         <img src={""} className="img-wrap__bg" />
         {state && (
