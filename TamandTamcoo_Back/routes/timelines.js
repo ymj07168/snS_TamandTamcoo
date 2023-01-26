@@ -44,4 +44,16 @@ router.post('/create', auth, (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    let { id } = req.params;
+    Timeline.find({ _id: id },
+        (err, timelines) => {
+            if (err) return res.json({ success: false, err });
+            return res.status(200).send({
+                timelines
+            })
+        })
+        .populate('contents')
+})
+
 module.exports = router;
