@@ -16,10 +16,10 @@ const Index = () => {
       <div className = "title"> 탐앤탐꾸 </div>
 
       <div className="img-wrap">
-        <img src={"/image/ico/logo.png"} width={400} height ={350} />
+        <img src={"/image/ico/logo.png"} width={380} height ={330} />
       </div>
 
-      <div className="sub"> 나만의 타임라인을 꾸며줘! </div>
+      <div className="sub"> 타임라인을 꾸며줘! </div>
 
       {isLogin ? (
         <>
@@ -37,7 +37,7 @@ const Index = () => {
       ) : (
         <Button
           text={"꾸미기"}
-          style={{ marginBottom: "30px" }} 
+          style={{ marginBottom: "20px" }} 
           //onClick={handleCompleteButton}
         />
       )}

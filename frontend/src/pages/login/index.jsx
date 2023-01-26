@@ -22,7 +22,7 @@ const Index = () => {
   const handleCompleteButton = () => {
     if (params.email === "") {
       alert("이메일을 입력해주세요");
-    } else if (params.message === "") {
+    } else if (params.password === "") {
       alert("비밀번호를 입력해주세요");
     } else {
       navigate("/home");
