@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Draggable from "react-draggable";
+import axios from "axios";
 
 //component
 import Header from "../../components/header/index";
@@ -13,8 +14,20 @@ import { Container } from "./style";
 const Index = () => {
   const { state } = useLocation();
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const no = searchParams.get("timeline_no");
+  const [detail, setDetail] = useState();
   const handleStickerDrag = (position) => {
     setPosition({ x: position.x, y: position.y });
+  };
+
+  useEffect(() => {
+    getDetail();
+  }, []);
+
+  const getDetail = async () => {
+    const res = await axios.get(`/api/timelines/63cf79cea8ef1d038b790764`);
+    setDetail(res.timelines);
   };
 
   return (
@@ -31,6 +44,15 @@ const Index = () => {
             <img src={state} className="img-wrap__sticker" />
           </Draggable>
         )}
+        {(detail?.contents || []).map((item) => {
+          return (
+            <img
+              src={item.parts}
+              className="img-wrap__sticker"
+              style={{ left: item.loc_x, top: item.loc_y }}
+            />
+          );
+        })}
       </div>
       <Link to="/sticker-select">
         <Button text={"스티커 선택하기"} style={{ marginBottom: "10px" }} />
