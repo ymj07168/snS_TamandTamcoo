@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, Prompt } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Draggable from "react-draggable";
 import axios from "axios";
@@ -12,14 +12,24 @@ import Button from "../../components/button/index";
 import { Container } from "./style";
 
 const Index = () => {
-  const { state } = useLocation();
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const parts = localStorage.getItem("parts");
+  console.log(localStorage.getItem("position"));
+  const [position, setPosition] = useState(
+    !!localStorage.getItem("position")
+      ? JSON.parse(localStorage.getItem("position"))
+      : { x: 0, y: 0 }
+  );
   const [searchParams, setSearchParams] = useSearchParams();
   const no = searchParams.get("timeline_no");
   const [detail, setDetail] = useState();
+
   const handleStickerDrag = (position) => {
     setPosition({ x: position.x, y: position.y });
   };
+
+  useEffect(() => {
+    localStorage.setItem("position", JSON.stringify(position));
+  }, [position]);
 
   useEffect(() => {
     getDetail();
@@ -40,12 +50,13 @@ const Index = () => {
       <div className="container__title">{detail?.title}</div>
       <div className="img-wrap">
         <img src={""} className="img-wrap__bg" />
-        {state && (
+        {parts && (
           <Draggable
             onDrag={(e, data) => handleStickerDrag(data)}
             bounds={"parent"}
+            defaultPosition={position}
           >
-            <img src={state} className="img-wrap__sticker" />
+            <img src={parts} className="img-wrap__sticker" />
           </Draggable>
         )}
         {(detail?.contents || []).map((item) => {
