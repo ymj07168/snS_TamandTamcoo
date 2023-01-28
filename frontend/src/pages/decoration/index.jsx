@@ -13,14 +13,14 @@ import { Container } from "./style";
 
 const Index = () => {
   const parts = localStorage.getItem("parts");
-  console.log(localStorage.getItem("position"));
   const [position, setPosition] = useState(
     !!localStorage.getItem("position")
       ? JSON.parse(localStorage.getItem("position"))
       : { x: 0, y: 0 }
   );
   const [searchParams, setSearchParams] = useSearchParams();
-  const no = searchParams.get("timeline_no");
+  //const no = searchParams.get("timeline_no");
+  const no = "63cf79cea8ef1d038b790764";
   const [detail, setDetail] = useState();
 
   const handleStickerDrag = (position) => {
@@ -37,7 +37,7 @@ const Index = () => {
 
   const getDetail = async () => {
     try {
-      const res = await axios.get(`/api/timelines/63cf79cea8ef1d038b790764`);
+      const res = await axios.get(`/api/timelines/${no}`);
       setDetail(res.data.timelines[0]);
     } catch (err) {
       console.log(err);
@@ -72,7 +72,15 @@ const Index = () => {
       <Link to="/sticker-select">
         <Button text={"스티커 선택하기"} style={{ marginBottom: "10px" }} />
       </Link>
-      <Link to="/message">
+      <Link
+        to={`/message?timeline_no=${no}`}
+        onClick={(e) => {
+          if (!localStorage.getItem("parts")) {
+            e.preventDefault();
+            alert("스티커를 선택해주세요");
+          }
+        }}
+      >
         <Button text={"메세지 작성하기"} />
       </Link>
     </Container>
