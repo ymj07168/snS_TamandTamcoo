@@ -61,6 +61,7 @@ const Index = () => {
   return (
     <Container>
       <Header text={"회원가입"} />
+      <div className="inputBox"> 
       <input
         placeholder="닉네임"
         value={params.nickname}
@@ -85,14 +86,16 @@ const Index = () => {
         type="password"
         value={params.password_c}
         onChange={(e) => onChangeValue("password_c", e.target.value)}
-        style={{ marginTop: "20px", marginBottom: "20px"}}
+        style={{ marginTop: "20px", marginBottom: "40px"}}
       />
 
       <Button
         text={"가입 완료"}
         style={{ marginBottom: "10px" }}
-        onClick={handleSubmit}
-      />
+        onClick={handleSubmit} 
+        /> 
+        </div>
+
     </Container>
   );
 };

@@ -46,12 +46,16 @@ const Index = () => {
 
   return (
     <Container>
-      <Header text={"로그인"}/>
+    <div className = "title">
+        <img src = {"image/ico/maintitle.png"} width ={300} height ={80}/></div> 
+    <div className="logo">
+      <img src ={"image/ico/arrow.svg"} width ={50}></img>
+    </div>
       <input
         placeholder="이메일"
         value={params.email}
         onChange={(e) => onChangeValue("email", e.target.value)}
-        style={{ marginTop: "100px" }} 
+        style={{ marginTop: "30px" }} 
       />
       <input
         placeholder="비밀번호"
