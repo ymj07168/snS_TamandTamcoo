@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios"; 
 
 //component
@@ -12,19 +12,22 @@ import { Container } from "./style";
 const Index = () => {
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const no = searchParams.get("timeline_no");
+
   const getDB = async (e) => {
-    //e.preventDefault(); 
+    e.preventDefault(); 
     try {
-      const response = await axios.read('/api/users/login'); 
+      const response = await axios.get('/api/users/login'); 
       console.log(JSON.stringify(response?.data));
-      //params.email('');
+      //params.loginSuccess('');
     } 
     catch (err) {
       console.log(err);
     }
   }
   const handleCompleteButton = () => {
-    navigate ("/decoration");
+    navigate (`/decoration?timeline_no=${no}`);
   }
 
   //로그인 여부에 따라 다르게 home1/ home2 구분
@@ -38,7 +41,7 @@ const Index = () => {
 
       <div className="sub"> 타임라인을 꾸며줘! </div>
 
-      {isLogin ? (
+      { !no? (
         <>
           <Button
             text={"로그인"}

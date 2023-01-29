@@ -16,7 +16,7 @@ const Index = () => {
     nickname: "",
     email: "",
     password: "",
-    check: "",
+    password_c: "",
   });
 
   const onChangeValue = (key, value) => {
@@ -28,7 +28,7 @@ const Index = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); 
     try {
-      const response = await axios.post('/api/users/register'); 
+      const response = await axios.post('/api/users/register', params); 
       console.log(JSON.stringify(response?.data));
       params.nickname('');
       params.email('');
@@ -48,7 +48,9 @@ const Index = () => {
         alert("비밀번호를 확인해주세요.") 
     } else if (params.password !== params.password_c) {
       alert("비밀번호가 서로 다릅니다.");
-    } else{
+    } else if (params.password.length < 4) {
+      alert("비밀번호를 4글자 이상으로 다시 설정해주세요.");
+    }else{
       navigate("/timeline");
     }
     if (params.password !== params.password_c) {
@@ -72,7 +74,7 @@ const Index = () => {
         style={{ marginTop: "20px" }}
       />
       <input
-        placeholder="비밀번호"
+        placeholder="비밀번호 (4글자 이상)"
         type="password"
         value={params.password}
         onChange={(e) => onChangeValue("password", e.target.value)}

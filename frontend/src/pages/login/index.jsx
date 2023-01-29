@@ -24,22 +24,23 @@ const Index = () => {
   const handleSubmit = async(e) => {
     e.preventDefault(); 
 
-    try {
-      const response = await axios.post('/api/users/login'); 
-      console.log(JSON.stringify(response?.data));
-      params.email('');
-      params.password('');
-    } 
-    catch (err) {
-      console.log(err);
-    }
 
     if (params.email === "") {
       alert("이메일을 입력해주세요");
     } else if (params.password === "") {
       alert("비밀번호를 입력해주세요");
     } else {
-      navigate("/timeline");
+      try {
+        const response = await axios.post('/api/users/login', params); 
+        console.log(JSON.stringify(response?.data));
+        if (response.data.loginSuccess == true) {
+          navigate("/timeline");  
+        } else {alert(response.data.message)}
+        
+      } 
+      catch (err) {
+        console.log(err);
+      }
     }
   };
 
