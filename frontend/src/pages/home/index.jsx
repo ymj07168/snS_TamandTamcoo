@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import axios from "axios"; 
 
 //component
 import Header from "../../components/header/index";
@@ -10,7 +11,26 @@ import { Container } from "./style";
 
 const Index = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const no = searchParams.get("timeline_no");
 
+  const getDB = async (e) => {
+    e.preventDefault(); 
+    try {
+      const response = await axios.get('/api/users/login'); 
+      console.log(JSON.stringify(response?.data));
+      //params.loginSuccess('');
+    } 
+    catch (err) {
+      console.log(err);
+    }
+  }
+  const handleCompleteButton = () => {
+    navigate (`/decoration?timeline_no=${no}`);
+  }
+
+  //로그인 여부에 따라 다르게 home1/ home2 구분
   return (
     <Container>
       <div className = "title"> 탐앤탐꾸 </div>
@@ -21,7 +41,7 @@ const Index = () => {
 
       <div className="sub"> 타임라인을 꾸며줘! </div>
 
-      {isLogin ? (
+      { !no? (
         <>
           <Button
             text={"로그인"}
@@ -38,7 +58,7 @@ const Index = () => {
         <Button
           text={"꾸미기"}
           style={{ marginBottom: "20px" }} 
-          //onClick={handleCompleteButton}
+          onClick={handleCompleteButton}
         />
       )}
     </Container>
@@ -46,4 +66,3 @@ const Index = () => {
 };
 
 export default Index;
-

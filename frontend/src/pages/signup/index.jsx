@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 //component
 import Header from "../../components/header/index";
@@ -15,7 +16,7 @@ const Index = () => {
     nickname: "",
     email: "",
     password: "",
-    check: "",
+    password_c: "",
   });
 
   const onChangeValue = (key, value) => {
@@ -23,33 +24,39 @@ const Index = () => {
     setParams(temp);
   };
 
-
-  const handleCompleteButton = () => {
+  //api 연동
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    try {
+      const response = await axios.post('/api/users/register', params); 
+      console.log(JSON.stringify(response?.data));
+      params.nickname('');
+      params.email('');
+      params.password('');
+      params.password_c('');
+    } 
+    catch (err) {
+      console.log(err);
+    }
     if (params.nickname === "") {
       alert("닉네임을 입력해주세요");
     } else if (params.email === "") {
       alert("이메일을 입력해주세요"); }
       else if (params.password === "") {
         alert("비밀번호를 입력해주세요.")
-      }else if (params.check ==="") {
+      }else if (params.password_c ==="") {
         alert("비밀번호를 확인해주세요.") 
-    } else if (params.password !== params.check) {
-      alert("비밀번호와 비밀번호 확인란이 다릅니다.");
-    } else{
-      navigate("/home");
+    } else if (params.password !== params.password_c) {
+      alert("비밀번호가 서로 다릅니다.");
+    } else if (params.password.length < 4) {
+      alert("비밀번호를 4글자 이상으로 다시 설정해주세요.");
+    }else{
+      navigate("/timeline");
     }
-    if (params.password !== params.check) {
-      alert("비밀번호와 비밀번호 확인란이 다릅니다.");
+    if (params.password !== params.password_c) {
+      alert("비밀번호가 서로 다릅니다.");
     }
   };
-
-  //sns 연동
-  const Google = () => {
-    navigate("https://www.google.com/");
-  }
-  const Kakao = () => {
-    navigate("https://www.kakaocorp.com/page/");
-  }
 
   return (
     <Container>
@@ -67,34 +74,24 @@ const Index = () => {
         style={{ marginTop: "20px" }}
       />
       <input
-        placeholder="비밀번호"
+        placeholder="비밀번호 (4글자 이상)"
+        type="password"
         value={params.password}
         onChange={(e) => onChangeValue("password", e.target.value)}
         style={{ marginTop: "20px" }}
       />
       <input
         placeholder="비밀번호 확인"
-        value={params.check}
-        onChange={(e) => onChangeValue("check", e.target.value)}
+        type="password"
+        value={params.password_c}
+        onChange={(e) => onChangeValue("password_c", e.target.value)}
         style={{ marginTop: "20px", marginBottom: "20px"}}
       />
-
-    <div className="others" onClick={Google}>
-      <img src={"/image/ico/google.png"} width={20} height ={20} paddingRight={20} />
-        구글계정으로 로그인 
-      </div>
-
-      <div className="others2" onClick={Kakao} 
-      style = {{marginBottom: "30px"}}>
-      <img src={"/image/ico/kakao.png"} width={25} height ={25}/>
-        카카오톡으로 로그인
-      </div>
-
 
       <Button
         text={"가입 완료"}
         style={{ marginBottom: "10px" }}
-        onClick={handleCompleteButton}
+        onClick={handleSubmit}
       />
     </Container>
   );
