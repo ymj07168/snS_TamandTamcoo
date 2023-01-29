@@ -8,6 +8,9 @@ const contentSchema = mongoose.Schema({
         required: true,
         ref: Timeline
     },
+    title: {
+        type: String,
+    },
     message: {
         type: String
     },
