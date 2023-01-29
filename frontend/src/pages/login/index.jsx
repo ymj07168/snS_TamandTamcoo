@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 //component
 import Header from "../../components/header/index";
@@ -18,14 +19,27 @@ const Index = () => {
     setParams(temp);
   };
 
-  //api연동..
-  const handleCompleteButton = () => {
+
+  //api 연동
+  const handleSubmit = async(e) => {
+    e.preventDefault(); 
+
+    try {
+      const response = await axios.post('/api/users/login'); 
+      console.log(JSON.stringify(response?.data));
+      params.email('');
+      params.password('');
+    } 
+    catch (err) {
+      console.log(err);
+    }
+
     if (params.email === "") {
       alert("이메일을 입력해주세요");
     } else if (params.password === "") {
       alert("비밀번호를 입력해주세요");
     } else {
-      navigate("/home");
+      navigate("/timeline");
     }
   };
 
@@ -40,6 +54,7 @@ const Index = () => {
       />
       <input
         placeholder="비밀번호"
+        type="password"
         value={params.password}
         onChange={(e) => onChangeValue("password", e.target.value)}
         style={{ marginTop: "30px", marginBottom: "40px" }} 
@@ -48,17 +63,8 @@ const Index = () => {
       <Button
         text={"로그인"}
         style={{ marginBottom: "15px" }}  
-        onClick={handleCompleteButton}
+        onClick={handleSubmit}
       />
-
-      <div className="others">
-      <img src={"/image/ico/google.png"} width={20} height ={20} paddingRight={20} />
-        구글계정으로 로그인 
-      </div>
-      <div className="others2">
-      <img src={"/image/ico/kakao.png"} width={25} height ={25} marginRight />
-        카카오톡으로 로그인 
-      </div>
 
     </Container>
   );
