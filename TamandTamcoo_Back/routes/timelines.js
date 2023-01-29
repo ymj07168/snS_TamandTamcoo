@@ -32,6 +32,8 @@ router.get('/read', auth, (req, res) => {
 router.post('/create', auth, (req, res) => {
     const timeline = new Timeline(req.body)
 
+    timeline.uid = req.user._id
+
     timeline.save((err, timeline) => {
         if (err) return res.json({ success: false, err })
 
