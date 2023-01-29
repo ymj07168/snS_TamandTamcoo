@@ -44,7 +44,7 @@ const Index = () => {
     try {
       const res = await axios.post("/api/contents/create", api_params);
       localStorage.clear();
-      alert('추가가 완료되었습니다.')
+      alert("추가가 완료되었습니다.");
       navigate("/complete");
     } catch (err) {
       console.log(err);
@@ -53,7 +53,7 @@ const Index = () => {
 
   return (
     <Container>
-      <Header text={"메세지"} link={"/decoration"} />
+      <Header text={"메세지"} link={`/decoration?timeline_no=${no}`} />
       <input
         placeholder="제목 입력"
         value={params.title}
