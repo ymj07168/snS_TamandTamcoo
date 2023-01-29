@@ -35,8 +35,8 @@ const Index = () => {
     const position = JSON.parse(localStorage.getItem("position"));
     const parts = localStorage.getItem("parts");
     const api_params = {
+      ...params,
       tid: no,
-      message: params.message,
       loc_x: position.x,
       loc_y: position.y,
       parts: parts,
