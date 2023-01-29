@@ -13,6 +13,14 @@ export const Container = styled.div`
     width: 100%;
   }
 
+  & .logo {
+    margin-top: 20px;
+
+
+  }
+  & .title {
+    margin-top: 60px;
+  }
   & > .container__title {
     font-size: 20px;
     font-weight: 500;

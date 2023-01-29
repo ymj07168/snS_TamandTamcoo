@@ -20,7 +20,6 @@ const Index = () => {
     try {
       const response = await axios.get('/api/users/login'); 
       console.log(JSON.stringify(response?.data));
-      //params.loginSuccess('');
     } 
     catch (err) {
       console.log(err);
@@ -29,14 +28,19 @@ const Index = () => {
   const handleCompleteButton = () => {
     navigate (`/decoration?timeline_no=${no}`);
   }
-
-  //로그인 여부에 따라 다르게 home1/ home2 구분
+  const loginButton = () => {
+    navigate ('/login?timeline_no=${no}')
+  }
+  const registerButton = () => {
+    navigate ('/signup?timeline_no=${no}')
+  }
   return (
     <Container>
-      <div className = "title"> 탐앤탐꾸 </div>
+      <div className = "title">
+        <img src = {"image/ico/maintitle.png"} width ={360} height ={100}/></div> 
 
       <div className="img-wrap">
-        <img src={"/image/ico/logo.png"} width={380} height ={330} />
+        <img src={"/image/ico/newlogo.png"} width={360} height ={330} />
       </div>
 
       <div className="sub"> 타임라인을 꾸며줘! </div>
@@ -46,12 +50,12 @@ const Index = () => {
           <Button
             text={"로그인"}
             style={{ marginBottom: "10px" }} 
-            //onClick={handleCompleteButton}
+            onClick ={loginButton}
           />
           <Button
             text={"회원가입"}
             style={{ marginBottom: "10px" }} 
-            //onClick={handleCompleteButton}
+            onClick ={registerButton}
           />
         </>
       ) : (

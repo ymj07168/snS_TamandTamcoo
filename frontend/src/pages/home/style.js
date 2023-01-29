@@ -19,11 +19,12 @@ export const Container = styled.div`
   }
 
   & > .img-wrap{
-    width:80%;
-    height: 400px; 
+    width:100%;
+    height: 400px;
+    display:flex;
+    justify-content:center; 
     margin-bottom:10px;
     position: relative;
-    margin-right: 90px;
   }
 
   & > .sub {
