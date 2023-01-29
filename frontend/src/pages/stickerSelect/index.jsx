@@ -25,7 +25,14 @@ const Index = () => {
           return (
             <img
               src={item}
-              onClick={() => navigate("/decoration", { state: item })}
+              onClick={() => {
+                navigate("/decoration");
+                localStorage.setItem("parts", item);
+                localStorage.setItem(
+                  "position",
+                  JSON.stringify({ x: 0, y: 0 })
+                );
+              }}
             />
           );
         })}
