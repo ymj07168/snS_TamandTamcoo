@@ -19,8 +19,7 @@ const Index = () => {
       : { x: 0, y: 0 }
   );
   const [searchParams, setSearchParams] = useSearchParams();
-  //const no = searchParams.get("timeline_no");
-  const no = "63cf79cea8ef1d038b790764";
+  const no = searchParams.get("timeline_no");
   const [detail, setDetail] = useState();
 
   const handleStickerDrag = (position) => {
@@ -69,7 +68,7 @@ const Index = () => {
           );
         })}
       </div>
-      <Link to="/sticker-select">
+      <Link to={`/sticker-select?timeline_no=${no}`}>
         <Button text={"스티커 선택하기"} style={{ marginBottom: "10px" }} />
       </Link>
       <Link
