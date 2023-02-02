@@ -20,17 +20,17 @@ export const Container = styled.div`
 
   & > .img-wrap{
     width:100%;
-    height: 463px; 
+    height: 400px;
+    display:flex;
+    justify-content:center; 
     margin-bottom:10px;
     position: relative;
-    margin-left: 300px;
   }
 
   & > .sub {
     font-family: "IBM Plex Sans KR", sans-serif;
     font-size: 28px;
     font-weight: 750;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 `;
-

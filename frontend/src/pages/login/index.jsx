@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 //component
 import Header from "../../components/header/index";
@@ -18,28 +19,47 @@ const Index = () => {
     setParams(temp);
   };
 
-  //api연동..
-  const handleCompleteButton = () => {
+
+  //api 연동
+  const handleSubmit = async(e) => {
+    e.preventDefault(); 
+
+
     if (params.email === "") {
       alert("이메일을 입력해주세요");
-    } else if (params.message === "") {
+    } else if (params.password === "") {
       alert("비밀번호를 입력해주세요");
     } else {
-      navigate("/home");
+      try {
+        const response = await axios.post('/api/users/login', params); 
+        console.log(JSON.stringify(response?.data));
+        if (response.data.loginSuccess == true) {
+          navigate("/timeline");  
+        } else {alert(response.data.message)}
+        
+      } 
+      catch (err) {
+        console.log(err);
+      }
     }
   };
 
   return (
     <Container>
-      <Header text={"로그인"}/>
+    <div className = "title">
+        <img src = {"image/ico/maintitle.png"} width ={300} height ={80}/></div> 
+    <div className="logo">
+      <img src ={"image/ico/arrow.svg"} width ={50}></img>
+    </div>
       <input
         placeholder="이메일"
         value={params.email}
         onChange={(e) => onChangeValue("email", e.target.value)}
-        style={{ marginTop: "100px" }} 
+        style={{ marginTop: "30px" }} 
       />
       <input
         placeholder="비밀번호"
+        type="password"
         value={params.password}
         onChange={(e) => onChangeValue("password", e.target.value)}
         style={{ marginTop: "30px", marginBottom: "40px" }} 
@@ -48,17 +68,8 @@ const Index = () => {
       <Button
         text={"로그인"}
         style={{ marginBottom: "15px" }}  
-        onClick={handleCompleteButton}
+        onClick={handleSubmit}
       />
-
-      <div className="others">
-      <img src={"/image/ico/google.png"} width={20} height ={20} paddingRight={20} />
-        구글계정으로 로그인 
-      </div>
-      <div className="others2">
-      <img src={"/image/ico/kakao.png"} width={25} height ={25} marginRight />
-        카카오톡으로 로그인 
-      </div>
 
     </Container>
   );

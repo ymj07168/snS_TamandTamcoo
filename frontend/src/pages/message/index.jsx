@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 //component
 import Header from "../../components/header/index";
@@ -12,6 +13,8 @@ import { Container } from "./style";
 const Index = () => {
   const navigate = useNavigate();
   const [params, setParams] = useState({ title: "", message: "" });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const no = searchParams.get("timeline_no");
 
   const handleCompleteButton = () => {
     if (params.title === "") {
@@ -19,7 +22,7 @@ const Index = () => {
     } else if (params.message === "") {
       alert("메세지를 입력해주세요");
     } else {
-      navigate("/complete");
+      createParts();
     }
   };
 
@@ -28,9 +31,29 @@ const Index = () => {
     setParams(temp);
   };
 
+  const createParts = async () => {
+    const position = JSON.parse(localStorage.getItem("position"));
+    const parts = localStorage.getItem("parts");
+    const api_params = {
+      ...params,
+      tid: no,
+      loc_x: position.x,
+      loc_y: position.y,
+      parts: parts,
+    };
+    try {
+      const res = await axios.post("/api/contents/create", api_params);
+      localStorage.clear();
+      alert("추가가 완료되었습니다.");
+      navigate("/complete");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Container>
-      <Header text={"메세지"} link={"/decoration"} />
+      <Header text={"메세지"} link={`/decoration?timeline_no=${no}`} />
       <input
         placeholder="제목 입력"
         value={params.title}

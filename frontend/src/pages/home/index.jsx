@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import axios from "axios"; 
 
 //component
 import Header from "../../components/header/index";
@@ -10,35 +11,58 @@ import { Container } from "./style";
 
 const Index = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const no = searchParams.get("timeline_no");
 
+  const getDB = async (e) => {
+    e.preventDefault(); 
+    try {
+      const response = await axios.get('/api/users/login'); 
+      console.log(JSON.stringify(response?.data));
+    } 
+    catch (err) {
+      console.log(err);
+    }
+  }
+  const handleCompleteButton = () => {
+    navigate (`/decoration?timeline_no=${no}`);
+  }
+  const loginButton = () => {
+    navigate ('/login?timeline_no=${no}')
+  }
+  const registerButton = () => {
+    navigate ('/signup?timeline_no=${no}')
+  }
   return (
     <Container>
-      <div className = "title"> 탐앤탐꾸 </div>
+      <div className = "title">
+        <img src = {"image/ico/maintitle.png"} width ={360} height ={100}/></div> 
 
       <div className="img-wrap">
-        <img src={"/image/ico/logo.png"} width={400} height ={350} />
+        <img src={"/image/ico/newlogo.png"} width={360} height ={330} />
       </div>
 
-      <div className="sub"> 나만의 타임라인을 꾸며줘! </div>
+      <div className="sub"> 타임라인을 꾸며줘! </div>
 
-      {isLogin ? (
+      { !no? (
         <>
           <Button
             text={"로그인"}
             style={{ marginBottom: "10px" }} 
-            //onClick={handleCompleteButton}
+            onClick ={loginButton}
           />
           <Button
             text={"회원가입"}
             style={{ marginBottom: "10px" }} 
-            //onClick={handleCompleteButton}
+            onClick ={registerButton}
           />
         </>
       ) : (
         <Button
           text={"꾸미기"}
-          style={{ marginBottom: "30px" }} 
-          //onClick={handleCompleteButton}
+          style={{ marginBottom: "20px" }} 
+          onClick={handleCompleteButton}
         />
       )}
     </Container>
@@ -46,4 +70,3 @@ const Index = () => {
 };
 
 export default Index;
-
