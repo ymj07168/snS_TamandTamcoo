@@ -22,7 +22,8 @@ const Index = () => {
     try {
       const res = await axios.get(`/api/timelines/read`);
       setTimelines(res.data.timelines);
-      console.log(res.data)
+      console.log(res.data);
+      console.log(res.data.timelines);
     } catch (err) {
       console.log(err);
     }
@@ -32,10 +33,10 @@ const Index = () => {
     <Container>
       <Header text={"타임라인"} link={"/"} />
       <div>
-        {timelines ? timelines.map((timeline, index) => (<img key={index} src={timeline.bid.imgURL} alt="이미지 없음" />)) : <div>Loading...</div>}
+        {timelines ? timelines.map((timeline, index) => (<img key={index} src={`http://localhost:5000/${timeline.bid.imgURL}`} alt="이미지 없음" width="150" height="300" style={{ margin: 10 }} />)) : <div>Loading...</div>}
       </div>
       <Link to="/creation">
-        <Button text={"타임라인 추가하기"} style={{ marginBottom: "10px" }} />
+        < Button text={"타임라인 추가하기"} style={{ marginBottom: "10px" }} />
       </Link>
     </Container>
   );
