@@ -29,14 +29,19 @@ export const Container = styled.div`
 
   & > .img-wrap {
     width: 100%;
-    height: 463px;
-    background: ${Color.gray};
+    height: 570px;
     margin-bottom: 20px;
     position: relative;
+    background-image: url(${(props) => `http://localhost:5000/${props.bg}`});
+    background-size: 100%;
+    & > .img-wrap__bg {
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
     & > .img-wrap__sticker {
       width: 100px;
-      height: 100px;
       position: absolute;
     }
   }

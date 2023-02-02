@@ -44,18 +44,20 @@ const Index = () => {
   };
 
   return (
-    <Container position={position}>
+    <Container position={position} bg={detail?.bid.imgURL}>
       <Header text={"탐라 꾸미기"} />
       <div className="container__title">{detail?.title}</div>
       <div className="img-wrap">
-        <img src={""} className="img-wrap__bg" />
         {parts && (
           <Draggable
             onDrag={(e, data) => handleStickerDrag(data)}
             bounds={"parent"}
-            defaultPosition={position}
           >
-            <img src={parts} className="img-wrap__sticker" />
+            <img
+              src={parts}
+              className="img-wrap__sticker"
+              style={{ zIndex: 9999, position: "absolute" }}
+            />
           </Draggable>
         )}
         {(detail?.contents || []).map((item) => {
@@ -68,7 +70,7 @@ const Index = () => {
           );
         })}
       </div>
-      <Link to={`/sticker-select?timeline_no=${no}`}>
+      <Link to={`/sticker-select?timeline_no=${no}`} state={detail?.bid.title}>
         <Button text={"스티커 선택하기"} style={{ marginBottom: "10px" }} />
       </Link>
       <Link

@@ -29,10 +29,10 @@ const Index = () => {
     navigate (`/decoration?timeline_no=${no}`);
   }
   const loginButton = () => {
-    navigate ('/login?timeline_no=${no}')
+    navigate ('/login')
   }
   const registerButton = () => {
-    navigate ('/signup?timeline_no=${no}')
+    navigate ('/signup')
   }
   return (
     <Container>
