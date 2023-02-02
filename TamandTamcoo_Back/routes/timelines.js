@@ -26,6 +26,7 @@ router.get('/read', auth, (req, res) => {
             })
         })
         .populate('contents')
+        .populate('bid')
 })
 
 // 타임라인 생성
@@ -57,6 +58,7 @@ router.get('/:id', (req, res) => {
             })
         })
         .populate('contents')
+        .populate('bid')
 })
 
 module.exports = router;
