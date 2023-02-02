@@ -39,6 +39,7 @@ router.post('/create', auth, (req, res) => {
 
         Timeline.find({ '_id': timeline._id })
             .populate('uid')
+            .populate('bid')
             .exec((err, timelines) => {
                 if (err) return res.json({ success: false, err });
                 return res.status(200).send({ success: true, timelines })
