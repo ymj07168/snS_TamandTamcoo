@@ -44,21 +44,19 @@ const Index = () => {
   };
 
   return (
-    <Container position={position}>
+    <Container position={position} bg={detail?.bg}>
       <Header text={"탐라 꾸미기"} />
       <div className="container__title">{detail?.title}</div>
       <div className="img-wrap">
-        <img src={""} className="img-wrap__bg" />
         {parts && (
           <Draggable
             onDrag={(e, data) => handleStickerDrag(data)}
             bounds={"parent"}
-            defaultPosition={position}
           >
             <img
               src={parts}
               className="img-wrap__sticker"
-              style={{ zIndex: 9999 }}
+              style={{ zIndex: 9999, position: "absolute" }}
             />
           </Draggable>
         )}

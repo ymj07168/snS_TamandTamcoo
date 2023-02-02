@@ -45,7 +45,7 @@ const Index = () => {
       const res = await axios.post("/api/contents/create", api_params);
       localStorage.clear();
       alert("추가가 완료되었습니다.");
-      navigate("/complete");
+      navigate(`/complete?timeline_no=${no}`);
     } catch (err) {
       console.log(err);
     }

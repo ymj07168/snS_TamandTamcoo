@@ -42,7 +42,6 @@ const Index = () => {
     snow: [
       "눈송이.png",
       "능히해냄.png",
-      "모음.png",
       "버섯송이.png",
       "송이1.png",
       "송이2.png",
@@ -75,7 +74,10 @@ const Index = () => {
               src={`/image/ico/${bg}Sticker/${item}`}
               onClick={() => {
                 navigate(`/decoration?timeline_no=${no}`);
-                localStorage.setItem("parts", `/image/ico/${bg}Sticker/${item}`);
+                localStorage.setItem(
+                  "parts",
+                  `/image/ico/${bg}Sticker/${item}`
+                );
                 localStorage.setItem(
                   "position",
                   JSON.stringify({ x: 0, y: 0 })
