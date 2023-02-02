@@ -9,7 +9,6 @@ export const Container = styled.div`
   justify-content: center;
   background-color: ${Color.yellow};
   border-radius: 10px;
-  font-family: "IBM Plex Sans KR", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 27px;
+  font-weight:900;
 `;
