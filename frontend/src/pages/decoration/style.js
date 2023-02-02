@@ -29,10 +29,10 @@ export const Container = styled.div`
 
   & > .img-wrap {
     width: 100%;
-    height: 650px;
+    height: 570px;
     margin-bottom: 20px;
     position: relative;
-    background-image: url(${(props) => `/image/bg/${props.bg}.png`});
+    background-image: url(${(props) => `http://localhost:5000/${props.bg}`});
     background-size: 100%;
     & > .img-wrap__bg {
       width: 100%;

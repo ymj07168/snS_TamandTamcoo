@@ -37,14 +37,14 @@ const Index = () => {
   const getDetail = async () => {
     try {
       const res = await axios.get(`/api/timelines/${no}`);
-      setDetail({ ...res.data.timelines[0], bg: "sky" });
+      setDetail(res.data.timelines[0]);
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <Container position={position} bg={detail?.bg}>
+    <Container position={position} bg={detail?.bid.imgURL}>
       <Header text={"탐라 꾸미기"} />
       <div className="container__title">{detail?.title}</div>
       <div className="img-wrap">
@@ -70,7 +70,7 @@ const Index = () => {
           );
         })}
       </div>
-      <Link to={`/sticker-select?timeline_no=${no}`} state={detail?.bg}>
+      <Link to={`/sticker-select?timeline_no=${no}`} state={detail?.bid.title}>
         <Button text={"스티커 선택하기"} style={{ marginBottom: "10px" }} />
       </Link>
       <Link
