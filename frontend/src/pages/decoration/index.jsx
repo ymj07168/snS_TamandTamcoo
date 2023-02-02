@@ -37,7 +37,7 @@ const Index = () => {
   const getDetail = async () => {
     try {
       const res = await axios.get(`/api/timelines/${no}`);
-      setDetail(res.data.timelines[0]);
+      setDetail({ ...res.data.timelines[0], bg: "sky" });
     } catch (err) {
       console.log(err);
     }
@@ -55,7 +55,11 @@ const Index = () => {
             bounds={"parent"}
             defaultPosition={position}
           >
-            <img src={parts} className="img-wrap__sticker" />
+            <img
+              src={parts}
+              className="img-wrap__sticker"
+              style={{ zIndex: 9999 }}
+            />
           </Draggable>
         )}
         {(detail?.contents || []).map((item) => {
@@ -68,7 +72,7 @@ const Index = () => {
           );
         })}
       </div>
-      <Link to={`/sticker-select?timeline_no=${no}`}>
+      <Link to={`/sticker-select?timeline_no=${no}`} state={detail?.bg}>
         <Button text={"스티커 선택하기"} style={{ marginBottom: "10px" }} />
       </Link>
       <Link
