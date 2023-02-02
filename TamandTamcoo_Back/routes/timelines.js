@@ -26,6 +26,7 @@ router.get('/read', auth, (req, res) => {
             })
         })
         .populate('contents')
+        .populate('bid')
 })
 
 // 타임라인 생성
@@ -39,6 +40,7 @@ router.post('/create', auth, (req, res) => {
 
         Timeline.find({ '_id': timeline._id })
             .populate('uid')
+            .populate('bid')
             .exec((err, timelines) => {
                 if (err) return res.json({ success: false, err });
                 return res.status(200).send({ success: true, timelines })
@@ -56,6 +58,7 @@ router.get('/:id', (req, res) => {
             })
         })
         .populate('contents')
+        .populate('bid')
 })
 
 module.exports = router;
