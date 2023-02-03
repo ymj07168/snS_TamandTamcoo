@@ -8,6 +8,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & > .loading {
+    width: 100%;
+    height: 500px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${Color.gray};
+  }
   & > a {
     width: 100%;
   }
@@ -48,7 +58,7 @@ export const Container = styled.div`
         width: fit-content;
         max-width: 100px;
         height: 14x;
-        background-color: ${Color.blue10};
+        background-color: ${(props) => props.bgColor};
         padding: 5px;
         box-sizing: border-box;
         border-radius: 10px;
@@ -57,7 +67,8 @@ export const Container = styled.div`
         white-space: nowrap;
         top: 110%;
         left: 50%;
-        transform: translate(-50%, -50%); /* 핵심코드 */
+        transform: translate(-50%, -50%);
+        border: 1px solid #fff;
       }
     }
   }

@@ -46,7 +46,7 @@ const Index = () => {
             </Link>
           ))
         ) : (
-          <div>Loading...</div>
+          <div className='loading'>Loading...</div>
         )}
       </div>
       <Link to="/creation">
