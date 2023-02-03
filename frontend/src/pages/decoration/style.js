@@ -14,8 +14,7 @@ export const Container = styled.div`
   }
 
   & > .container__title {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 25px;
     color: white;
     background-color: ${Color.blue};
     width: 100%;
@@ -25,11 +24,14 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   & > .img-wrap {
     width: 100%;
-    height: 570px;
+    height: 520px;
     margin-bottom: 20px;
     position: relative;
     background-image: url(${(props) => `http://localhost:5000/${props.bg}`});

@@ -13,7 +13,6 @@ const Index = () => {
   const no = searchParams.get("timeline_no");
   const location = useLocation();
   const bg = location.state;
-  console.log(bg);
   const imgList = {
     sky: [
       "네온-꽃다발.png",

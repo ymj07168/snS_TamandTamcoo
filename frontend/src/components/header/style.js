@@ -13,6 +13,9 @@ export const Container = styled.div`
   & > a {
     position: absolute;
     left: 0;
-    top: 20px;
+    top: 33px;
+    & > span {
+      font-size: 30px;
+    }
   }
 `;

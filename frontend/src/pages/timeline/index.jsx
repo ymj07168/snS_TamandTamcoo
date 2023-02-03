@@ -11,8 +11,7 @@ import Button from "../../components/button/index";
 import { Container } from "./style";
 
 const Index = () => {
-
-  const [timelines, setTimelines] = useState('');
+  const [timelines, setTimelines] = useState("");
 
   useEffect(() => {
     getTimelineAll();
@@ -31,12 +30,27 @@ const Index = () => {
 
   return (
     <Container>
-      <Header text={"타임라인"} link={"/"} />
+      <Header text={"타임라인"} />
       <div>
-        {timelines ? timelines.map((timeline, index) => (<Link to={`/detail?timeline_no=${timeline._id}`}><img key={index} src={`http://localhost:5000/${timeline.bid.imgURL}`} alt="이미지 없음" width="150" height="300" style={{ margin: 10 }} /></Link>)) : <div>Loading...</div>}
+        {timelines ? (
+          timelines.map((timeline, index) => (
+            <Link to={`/detail?timeline_no=${timeline._id}`}>
+              <img
+                key={index}
+                src={`http://localhost:5000/${timeline.bid.imgURL}`}
+                alt="이미지 없음"
+                width="150"
+                height="300"
+                style={{ margin: 10 }}
+              />
+            </Link>
+          ))
+        ) : (
+          <div className='loading'>Loading...</div>
+        )}
       </div>
       <Link to="/creation">
-        < Button text={"타임라인 추가하기"} style={{ marginBottom: "10px" }} />
+        <Button text={"타임라인 추가하기"} style={{ marginBottom: "10px" }} />
       </Link>
     </Container>
   );
