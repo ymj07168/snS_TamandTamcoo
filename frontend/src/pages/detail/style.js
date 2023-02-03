@@ -24,22 +24,41 @@ export const Container = styled.div`
     justify-content: center;
     margin-bottom: 20px;
   }
-  & > .img-wrap {
+  & > .img-container {
     width: 100%;
-    height: 650px;
-    background-color: ${Color.gray};
+    height: 570px;
     margin-bottom: 20px;
     position: relative;
-    background-image: url(${(props) => `/image/bg/${props.bg}.png`});
+    background-image: url(${(props) =>
+      `http://localhost:5000/file/background/${props.bg}.png`});
     background-size: 100%;
-    & > .img-wrap__bg {
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    & > .img-wrap__sticker {
+
+    & > .img-wrap {
       width: 100px;
       position: absolute;
+      height: fit-content;
+
+      & > .img-wrap__sticker {
+        width: 100px;
+      }
+
+      & > .img-wrap__title {
+        position: absolute;
+        color: #fff;
+        width: fit-content;
+        max-width: 100px;
+        height: 14x;
+        background-color: ${Color.blue10};
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        top: 110%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* 핵심코드 */
+      }
     }
   }
 `;

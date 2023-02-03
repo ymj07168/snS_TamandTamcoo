@@ -29,9 +29,9 @@ const Index = () => {
   };
 
   return (
-    <Container bg={detail?.bg}>
+    <Container bg={detail?.bid.title}>
       <Header text={"탐라 완성"} />
-      <div className="container__title">{detail.title}</div>
+      <div className="container__title">{detail?.title}</div>
       <div className="img-wrap">
         {(detail?.contents || []).map((item) => {
           return (

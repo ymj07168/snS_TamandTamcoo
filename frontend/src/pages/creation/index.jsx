@@ -45,7 +45,7 @@ const Index = () => {
   };
 
   //공유버튼 누르면 호출되는 함수
-  const handleShareButton = () => {
+  const handleCopyButton = () => {
     if (params.title === "") {
       alert("제목을 입력해주세요");
     } else {
@@ -107,9 +107,9 @@ const Index = () => {
       </SliderContainer>
 
       <Button
-        text={"공유하기"}
+        text={"링크 복사하기"}
         style={{ marginBottom: "10px" }}
-        onClick={handleShareButton}
+        onClick={handleCopyButton}
       />
       <Button
         text={"목록으로 돌아가기"}
