@@ -17,11 +17,11 @@ const Index = () => {
   const no = searchParams.get("timeline_no");
   const [detail, setDetail] = useState();
   const [isOpen, setIsOpen] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [modalContent, setModalContent] = useState({});
 
-  const toggle = (index) => {
+  const toggle = (item) => {
     setIsOpen(!isOpen);
-    setIndex(index);
+    setModalContent(item);
   };
 
   useEffect(() => {
@@ -58,8 +58,7 @@ const Index = () => {
             isOpen={isOpen}
             toggle={toggle}
             bg={detail.bid.title}
-            item={detail.contents}
-            index={index}
+            item={modalContent}
           />
           <Header text={"탐라 상세"} link={"/timeline"} />
           <div className="container__title">{detail?.title}</div>
@@ -74,13 +73,13 @@ const Index = () => {
                     src={item.parts}
                     className="img-wrap__sticker"
                     onClick={() => {
-                      toggle(index);
+                      toggle(item);
                     }}
                   />
                   <div
                     className="img-wrap__title"
                     onClick={() => {
-                      toggle(index);
+                      toggle(item);
                     }}
                   >
                     {item.title}
@@ -104,7 +103,7 @@ const Index = () => {
           </Link>
         </>
       ) : (
-        <div className='loading'>Loading...</div>
+        <div className="loading">Loading...</div>
       )}
     </Container>
   );

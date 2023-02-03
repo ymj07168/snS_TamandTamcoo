@@ -22,8 +22,7 @@ export const Container = styled.div`
     width: 100%;
   }
   & > .container__title {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 25px;
     color: white;
     background-color: ${Color.blue};
     width: 100%;

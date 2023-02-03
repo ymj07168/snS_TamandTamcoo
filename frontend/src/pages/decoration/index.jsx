@@ -14,9 +14,7 @@ import { Container } from "./style";
 const Index = () => {
   const parts = localStorage.getItem("parts");
   const [position, setPosition] = useState(
-    !!localStorage.getItem("position")
-      ? JSON.parse(localStorage.getItem("position"))
-      : { x: 0, y: 0 }
+    JSON.parse(localStorage.getItem("position"))
   );
   const [searchParams, setSearchParams] = useSearchParams();
   const no = searchParams.get("timeline_no");
@@ -52,6 +50,7 @@ const Index = () => {
           <Draggable
             onDrag={(e, data) => handleStickerDrag(data)}
             bounds={"parent"}
+            defaultPosition={position}
           >
             <img
               src={parts}

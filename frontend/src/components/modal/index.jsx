@@ -1,10 +1,8 @@
 import { ModalContainer } from "./style";
-import { useState } from "react";
 import { Color } from "../../style";
 
 const Index = (props) => {
-  const { isOpen, toggle, bg, item, index } = props;
-  console.log(item);
+  const { isOpen, toggle, bg, item } = props;
   return (
     <ModalContainer
       isOpen={isOpen}
@@ -39,8 +37,8 @@ const Index = (props) => {
       }}
     >
       <div className="detail">
-        <div className="detail__title">{item[index]?.title}</div>
-        <div className="detail__message">{item[index]?.message}</div>
+        <div className="detail__title">{item.title}</div>
+        <div className="detail__message">{item.message}</div>
       </div>
     </ModalContainer>
   );
