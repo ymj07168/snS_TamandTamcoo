@@ -18,15 +18,14 @@ export const Container = styled.div`
     color: white;
     background-color: ${Color.blue};
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
   & > .img-wrap {

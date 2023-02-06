@@ -15,31 +15,32 @@ export const Container = styled.div`
     justify-content: flex-start;
     flex-wrap: wrap;
     margin-bottom: 50px;
+
+    & > .content__loading {
+      width: 100%;
+      height: 400px;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: ${Color.gray};
+    }
+
+    & > .content__empty {
+      width: 100%;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      color: ${Color.gray};
+    }
+
     & > a {
       width: 50%;
       height: fit-content;
       position: relative;
       display: block;
-
-      & > .content__loading {
-        width: 100%;
-        height: 400px;
-        font-size: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: ${Color.gray};
-      }
-
-      & > .content__empty {
-        width: 100%;
-        height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 50px;
-        color: ${Color.gray};
-      }
 
       & > .content__title {
         position: absolute;

@@ -26,16 +26,18 @@ export const Container = styled.div`
     color: white;
     background-color: ${Color.blue};
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   & > .img-container {
     width: 100%;
-    height: 570px;
+    height: 530px;
     margin-bottom: 20px;
     position: relative;
     background-image: url(${(props) =>

@@ -15,21 +15,22 @@ export const Container = styled.div`
 
   & > .container__title {
     font-size: 20px;
-    font-weight: 500;
     color: white;
     background-color: ${Color.blue};
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    padding: 10px 10px;
+    box-sizing: border-box;
   }
 
   & > .img-container {
     width: 100%;
-    height: 570px;
+    height: 530px;
     margin-bottom: 20px;
     position: relative;
     background-image: url(${(props) =>
@@ -58,7 +59,7 @@ export const Container = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        top: 110%;
+        top: 115%;
         left: 50%;
         transform: translate(-50%, -50%);
         border: 1px solid #fff;
