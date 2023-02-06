@@ -14,7 +14,6 @@ const Index = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const no = searchParams.get("timeline_no");
   const [detail, setDetail] = useState();
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     getDetail();
