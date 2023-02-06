@@ -15,7 +15,7 @@ const Index = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const no = searchParams.get("timeline_no");
   const [detail, setDetail] = useState();
-  const location = useLocation();
+  //const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -39,23 +39,15 @@ const Index = () => {
     <Container bg={detail?.bid.title}>
       <Header text={"탐라 완성"} />
       <div className="container__title">{detail?.title}</div>
-      <div className="img-wrap">
+      <div className="img-container">
         {(detail?.contents || []).map((item) => {
           return (
             <div
               className="img-wrap"
               style={{ left: item.loc_x, top: item.loc_y }}
             >
-              <img
-                src={item.parts}
-                className="img-wrap__sticker"
-                
-              />
-              <div
-                className="img-wrap__title"
-              >
-                {item.title}
-              </div>
+              <img src={item.parts} className="img-wrap__sticker" />
+              <div className="img-wrap__title">{item.title}</div>
             </div>
           );
         })}
