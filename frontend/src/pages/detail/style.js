@@ -63,7 +63,7 @@ export const Container = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        top: 110%;
+        top: 115%;
         left: 50%;
         transform: translate(-50%, -50%);
         border: 1px solid #fff;

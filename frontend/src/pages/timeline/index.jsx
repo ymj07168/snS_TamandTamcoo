@@ -12,6 +12,7 @@ import { Container } from "./style";
 
 const Index = () => {
   const [timelines, setTimelines] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getTimelineAll();
@@ -21,8 +22,7 @@ const Index = () => {
     try {
       const res = await axios.get(`/api/timelines/read`);
       setTimelines(res.data.timelines);
-      console.log(res.data);
-      console.log(res.data.timelines);
+      setLoading(true);
     } catch (err) {
       console.log(err);
     }
@@ -32,8 +32,8 @@ const Index = () => {
     <Container>
       <Header text={"타임라인"} />
       <div>
-        {timelines ? (
-          timelines.map((timeline, index) => (
+        {loading ? (
+          (timelines || []).map((timeline, index) => (
             <Link to={`/detail?timeline_no=${timeline._id}`}>
               <img
                 key={index}
@@ -46,7 +46,7 @@ const Index = () => {
             </Link>
           ))
         ) : (
-          <div className='loading'>Loading...</div>
+          <div className="loading">Loading...</div>
         )}
       </div>
       <Link to="/creation">

@@ -26,76 +26,78 @@ const Index = () => {
 
   //api 연동
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
-    try {
-      const response = await axios.post('/api/users/register', params); 
-      console.log(JSON.stringify(response?.data));
-      params.nickname('');
-      params.email('');
-      params.password('');
-      params.password_c('');
-    } 
-    catch (err) {
-      console.log(err);
-    }
+    e.preventDefault();
+
     if (params.nickname === "") {
       alert("닉네임을 입력해주세요");
     } else if (params.email === "") {
-      alert("이메일을 입력해주세요"); }
-      else if (params.password === "") {
-        alert("비밀번호를 입력해주세요.")
-      }else if (params.password_c ==="") {
-        alert("비밀번호를 확인해주세요.") 
+      alert("이메일을 입력해주세요");
+    } else if (params.password === "") {
+      alert("비밀번호를 입력해주세요.");
+    } else if (params.password_c === "") {
+      alert("비밀번호를 확인해주세요.");
     } else if (params.password !== params.password_c) {
       alert("비밀번호가 서로 다릅니다.");
     } else if (params.password.length < 4) {
       alert("비밀번호를 4글자 이상으로 다시 설정해주세요.");
-    }else{
-      navigate("/timeline");
-    }
-    if (params.password !== params.password_c) {
-      alert("비밀번호가 서로 다릅니다.");
+    } else {
+      try {
+        const response = await axios.post("/api/users/register", params);
+        if (response.data.success) {
+          //login
+          const response2 = await axios.post("/api/users/login", {
+            email: params.email,
+            password: params.password,
+          });
+          if (response2.data.loginSuccess) {
+            navigate("/timeline");
+          }
+        } else {
+          alert("중복되는 이메일입니다.");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
   return (
     <Container>
       <Header text={"회원가입"} />
-      <div className="inputBox"> 
-      <input
-        placeholder="닉네임"
-        value={params.nickname}
-        onChange={(e) => onChangeValue("nickname", e.target.value)}
-        style={{ marginTop: "20px" }}
-      />
-      <input
-        placeholder="이메일"
-        value={params.email}
-        onChange={(e) => onChangeValue("email", e.target.value)}
-        style={{ marginTop: "20px" }}
-      />
-      <input
-        placeholder="비밀번호 (4글자 이상)"
-        type="password"
-        value={params.password}
-        onChange={(e) => onChangeValue("password", e.target.value)}
-        style={{ marginTop: "20px" }}
-      />
-      <input
-        placeholder="비밀번호 확인"
-        type="password"
-        value={params.password_c}
-        onChange={(e) => onChangeValue("password_c", e.target.value)}
-        style={{ marginTop: "20px", marginBottom: "40px"}}
-      />
+      <div className="inputBox">
+        <input
+          placeholder="닉네임"
+          value={params.nickname}
+          onChange={(e) => onChangeValue("nickname", e.target.value)}
+          style={{ marginTop: "20px" }}
+        />
+        <input
+          placeholder="이메일"
+          value={params.email}
+          onChange={(e) => onChangeValue("email", e.target.value)}
+          style={{ marginTop: "20px" }}
+        />
+        <input
+          placeholder="비밀번호 (4글자 이상)"
+          type="password"
+          value={params.password}
+          onChange={(e) => onChangeValue("password", e.target.value)}
+          style={{ marginTop: "20px" }}
+        />
+        <input
+          placeholder="비밀번호 확인"
+          type="password"
+          value={params.password_c}
+          onChange={(e) => onChangeValue("password_c", e.target.value)}
+          style={{ marginTop: "20px", marginBottom: "40px" }}
+        />
 
-      <Button
-        text={"가입 완료"}
-        style={{ marginBottom: "10px" }}
-        onClick={handleSubmit} 
-        /> 
-        </div>
-
+        <Button
+          text={"가입 완료"}
+          style={{ marginBottom: "10px" }}
+          onClick={handleSubmit}
+        />
+      </div>
     </Container>
   );
 };
