@@ -51,7 +51,7 @@ export const Container = styled.div`
         width: fit-content;
         max-width: 100px;
         height: 14x;
-        background-color: ${(props) => props.bgColor};
+
         padding: 5px;
         box-sizing: border-box;
         border-radius: 10px;
