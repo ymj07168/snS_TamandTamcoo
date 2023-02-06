@@ -32,7 +32,7 @@ const Index = () => {
     return (
         <Container bg={detail?.bg}>
             <Header text={"탐라 상세"} />
-            <div className="container__title">{detail.title}</div>
+            <div className="container__title">{detail?.title}</div>
             <div className="img-wrap">
                 {(detail?.contents || []).map((item) => {
                     return (

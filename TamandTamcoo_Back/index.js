@@ -24,5 +24,6 @@ app.use('/api/backgrounds', require('./routes/backgrounds'))
 // app.use('/api/content', require('./routes/content'))
 app.use('/api/timelines', require('./routes/timelines'))
 app.use('/api/contents', require('./routes/contents'))
+app.use('/file', express.static("file"))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
