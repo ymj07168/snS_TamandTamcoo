@@ -27,10 +27,42 @@ export const Container = styled.div`
     margin-bottom: 20px;
   }
 
-  & > .container__img-wrap {
+  & > .img-container {
     width: 100%;
-    height: 463px;
-    background-color: ${Color.gray};
+    height: 570px;
     margin-bottom: 20px;
+    position: relative;
+    background-image: url(${(props) =>
+      `http://localhost:5000/file/background/${props.bg}.png`});
+    background-size: 100%;
+
+    & > .img-wrap {
+      width: 100px;
+      position: absolute;
+      height: fit-content;
+
+      & > .img-wrap__sticker {
+        width: 100px;
+      }
+
+      & > .img-wrap__title {
+        position: absolute;
+        color: #fff;
+        width: fit-content;
+        max-width: 100px;
+        height: 14x;
+        background-color: ${(props) => props.bgColor};
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        top: 110%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #fff;
+      }
+    }
   }
 `;
