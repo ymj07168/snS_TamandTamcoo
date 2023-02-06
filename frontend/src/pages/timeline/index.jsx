@@ -11,7 +11,7 @@ import Button from "../../components/button/index";
 import { Container } from "./style";
 
 const Index = () => {
-  const [timelines, setTimelines] = useState("");
+  const [timelines, setTimelines] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Index = () => {
     try {
       const res = await axios.get(`/api/timelines/read`);
       setTimelines(res.data.timelines);
-      setLoading(true);
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -31,22 +31,27 @@ const Index = () => {
   return (
     <Container>
       <Header text={"타임라인"} />
-      <div>
-        {loading ? (
-          (timelines || []).map((timeline, index) => (
-            <Link to={`/detail?timeline_no=${timeline._id}`}>
-              <img
-                key={index}
-                src={`http://localhost:5000/${timeline.bid.imgURL}`}
-                alt="이미지 없음"
-                width="150"
-                height="300"
-                style={{ margin: 10 }}
-              />
-            </Link>
-          ))
+      <div className="content">
+        {!loading ? (
+          timelines.length !== 0 ? (
+            timelines.map((timeline, index) => (
+              <Link to={`/detail?timeline_no=${timeline._id}`}>
+                <img
+                  key={index}
+                  src={`http://localhost:5000/${timeline.bid.imgURL}`}
+                  alt="이미지 없음"
+                  width="90%"
+                  height="300"
+                  style={{ margin: 10 }}
+                />
+                <div className="content__title">{timeline.title}</div>
+              </Link>
+            ))
+          ) : (
+            <div className="content__empty">텅!</div>
+          )
         ) : (
-          <div className="loading">Loading...</div>
+          <div className="content__loading">Loading...</div>
         )}
       </div>
       <Link to="/creation">

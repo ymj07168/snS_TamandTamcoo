@@ -8,16 +8,58 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  & > .loading {
+
+  & > .content {
     width: 100%;
-    height: 500px;
-    font-size: 30px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: ${Color.gray};
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    & > a {
+      width: 50%;
+      height: fit-content;
+      position: relative;
+      display: block;
+
+      & > .content__loading {
+        width: 100%;
+        height: 400px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: ${Color.gray};
+      }
+
+      & > .content__empty {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        color: ${Color.gray};
+      }
+
+      & > .content__title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
   }
   & > a {
-    width: 100%;
+    width: calc(100% - 40px);
+    position: fixed;
+    bottom: 0;
   }
 `;
