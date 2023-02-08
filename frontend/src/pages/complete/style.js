@@ -35,7 +35,7 @@ export const Container = styled.div`
     position: relative;
     background-image: url(${(props) =>
       //`http://localhost:5000/file/background/${props.bg}.png`
-      `http://54.65.17.182/file/background/${props.bg}.png`
+      `http://54.65.17.182:5000/file/background/${props.bg}.png`
     });
     background-size: 100%;
 
