@@ -22,14 +22,8 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/backgrounds", require("./routes/backgrounds"));
 // app.use('/auth/content', require('./routes/content'))
 // app.use('/api/content', require('./routes/content'))
-<<<<<<< HEAD
-app.use('/api/timelines', require('./routes/timelines'))
-app.use('/api/contents', require('./routes/contents'))
-app.use('/file', express.static("file"))
-=======
 app.use("/api/timelines", require("./routes/timelines"));
 app.use("/api/contents", require("./routes/contents"));
 app.use("/file", express.static("file"));
->>>>>>> b2a23083e25e1c692b036b6d68cd2fe827bf6fc1
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
