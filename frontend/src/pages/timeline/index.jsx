@@ -40,7 +40,7 @@ const Index = () => {
                   key={index}
                   src={
                     //`http://localhost:5000/${timeline.bid.imgURL}`
-                    `http://54.65.17.182/${timeline.bid.imgURL}`
+                    `http://54.65.17.182:5000/${timeline.bid.imgURL}`
                   }
                   alt="이미지 없음"
                   width="90%"

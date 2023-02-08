@@ -36,7 +36,7 @@ const Index = () => {
       const res = await axios.post(`/api/timelines/create`, api_params);
       if (res.data.success) {
         handleCopyClipBoard(
-          `http://localhost:3000?timeline_no=${res.data.timelines[0]._id}`
+          `http://54.65.17.182:5000?timeline_no=${res.data.timelines[0]._id}`
         );
       }
     } catch (err) {
@@ -100,7 +100,7 @@ const Index = () => {
               <img
                 //src={`http://localhost:5000/${item.imgURL}`
                 src={`http://54.65.17.182/${item.imgURL}`
-              }
+                }
                 className="img-wrap__bg"
               />
             </div>
