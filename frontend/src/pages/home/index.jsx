@@ -29,11 +29,21 @@ const Index = () => {
   return (
     <Container>
       <div className="title">
-        <img src={"image/ico/maintitle.png"} width={360} height={100} />
+        <img
+          src={"image/ico/maintitle.png"}
+          width={"90%"}
+          height={"auto"}
+          style={{ objectFit: "contain" }}
+        />
       </div>
 
       <div className="img-wrap">
-        <img src={"/image/ico/newlogo.png"} width={360} height={330} />
+        <img
+          src={"/image/ico/newlogo.png"}
+          width={"90%"}
+          height={"auto"}
+          style={{ objectFit: "contain" }}
+        />
       </div>
 
       <div className="sub"> 타임라인을 꾸며줘! </div>

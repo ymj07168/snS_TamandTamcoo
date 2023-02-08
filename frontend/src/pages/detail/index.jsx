@@ -41,7 +41,7 @@ const Index = () => {
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert("클립보드에 링크가 복사되었습니다.");
+      alert("클립보드에 공유 링크가 복사되었습니다.");
     } catch (e) {
       alert("복사에 실패하였습니다");
     }
@@ -89,7 +89,7 @@ const Index = () => {
             })}
           </div>
           <Button
-            text={"링크 복사하기"}
+            text={"공유 링크 복사하기"}
             style={{ marginBottom: "10px" }}
             onClick={() =>
               handleCopyClipBoard(`http://localhost:3000?timeline_no=${no}`)

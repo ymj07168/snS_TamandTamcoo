@@ -10,20 +10,23 @@ export const Container = styled.div`
   align-items: center;
 
   & > .title {
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: "Black Han Sans", sans-serif;
     font-size: 70px;
     font-weight: 500;
-    margin-bottom:30px;
+    margin-bottom: 30px;
     margin-top: 60px;
-    color: #12CC6F;
+    color: #12cc6f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  & > .img-wrap{
-    width:100%;
+  & > .img-wrap {
+    width: 100%;
     height: 400px;
-    display:flex;
-    justify-content:center; 
-    margin-bottom:10px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
     position: relative;
   }
 

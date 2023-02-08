@@ -18,15 +18,14 @@ export const Container = styled.div`
     color: white;
     background-color: ${Color.blue};
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
   & > .img-wrap {
@@ -34,7 +33,11 @@ export const Container = styled.div`
     height: 520px;
     margin-bottom: 20px;
     position: relative;
-    background-image: url(${(props) => `http://localhost:5000/${props.bg}`});
+    background-image: url(${(props) => 
+      //`http://localhost:5000/${props.bg}`
+      `http://54.65.17.182/${props.bg}`
+    
+    });
     background-size: 100%;
     & > .img-wrap__bg {
       width: 100%;

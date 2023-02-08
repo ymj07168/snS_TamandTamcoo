@@ -26,20 +26,24 @@ export const Container = styled.div`
     color: white;
     background-color: ${Color.blue};
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   & > .img-container {
     width: 100%;
-    height: 570px;
+    height: 530px;
     margin-bottom: 20px;
     position: relative;
     background-image: url(${(props) =>
-      `http://localhost:5000/file/background/${props.bg}.png`});
+      //`http://localhost:5000/file/background/${props.bg}.png`
+      `http://54.65.17.182/file/background/${props.bg}.png`
+    });
     background-size: 100%;
 
     & > .img-wrap {
@@ -57,14 +61,13 @@ export const Container = styled.div`
         width: fit-content;
         max-width: 100px;
         height: 14x;
-        background-color: ${(props) => props.bgColor};
         padding: 5px;
         box-sizing: border-box;
         border-radius: 10px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        top: 110%;
+        top: 115%;
         left: 50%;
         transform: translate(-50%, -50%);
         border: 1px solid #fff;
