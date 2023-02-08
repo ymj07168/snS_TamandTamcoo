@@ -99,8 +99,8 @@ const Index = () => {
             <div className="img-wrap">
               <img
                 //src={`http://localhost:5000/${item.imgURL}`
-                src={`http://54.65.17.182/${item.imgURL}`
-                }
+                src={`http://54.65.17.182:5000/${item.imgURL}`
+              }
                 className="img-wrap__bg"
               />
             </div>
