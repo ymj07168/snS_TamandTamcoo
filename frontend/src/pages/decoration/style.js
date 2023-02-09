@@ -33,19 +33,11 @@ export const Container = styled.div`
     height: 520px;
     margin-bottom: 20px;
     position: relative;
-<<<<<<< HEAD
     background-image: url(${(props) =>
     //`http://localhost:5000/${props.bg}`
     `http://54.65.17.182:5000/${props.bg}`
 
   });
-=======
-    background-image: url(${(props) => 
-      //`http://localhost:5000/${props.bg}`
-      `http://54.65.17.182:5000/${props.bg}`
-    
-    });
->>>>>>> 9884a7f1a090dfe7ed86cf4aaf0ef1434971dbec
     background-size: 100%;
     & > .img-wrap__bg {
       width: 100%;
