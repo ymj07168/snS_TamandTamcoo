@@ -18,7 +18,6 @@ const Index = () => {
     const temp = { ...params, [key]: value };
     setParams(temp);
   };
-  console.log(process.env.REACT_APP_API);
   //api 연동
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -12,6 +12,7 @@ import { Container, SliderContainer } from "./style";
 
 const Index = () => {
   const URL = process.env.REACT_APP_URL;
+  const DOMAIN = process.env.REACT_APP_DOMAIN;
   const navigate = useNavigate();
   const [params, setParams] = useState({ title: "" });
   const [list, setList] = useState([]);
@@ -37,7 +38,7 @@ const Index = () => {
       const res = await axios.post(`/api/timelines/create`, api_params);
       if (res.data.success) {
         handleCopyClipBoard(
-          `http://localhost:3000?timeline_no=${res.data.timelines[0]._id}`
+          `${DOMAIN}?timeline_no=${res.data.timelines[0]._id}`
         );
       }
     } catch (err) {

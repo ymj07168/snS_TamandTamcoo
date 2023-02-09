@@ -13,6 +13,7 @@ import MessageModal from "../../components/modal/index";
 import { Container } from "./style";
 
 const Index = () => {
+  const DOMAIN = process.env.REACT_APP_DOMAIN;
   const [searchParams, setSearchParams] = useSearchParams();
   const no = searchParams.get("timeline_no");
   const [detail, setDetail] = useState();
@@ -91,9 +92,7 @@ const Index = () => {
           <Button
             text={"공유 링크 복사하기"}
             style={{ marginBottom: "10px" }}
-            onClick={() =>
-              handleCopyClipBoard(`http://localhost:3000?timeline_no=${no}`)
-            }
+            onClick={() => handleCopyClipBoard(`${DOMAIN}?timeline_no=${no}`)}
           />
           <Link to={`/timeline`}>
             <Button
