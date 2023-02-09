@@ -11,6 +11,7 @@ import Header from "../../components/header/index";
 import { Container, SliderContainer } from "./style";
 
 const Index = () => {
+  const URL = process.env.REACT_APP_URL;
   const navigate = useNavigate();
   const [params, setParams] = useState({ title: "" });
   const [list, setList] = useState([]);
@@ -97,12 +98,7 @@ const Index = () => {
         {(list || []).map((item) => {
           return (
             <div className="img-wrap">
-              <img
-                //src={`http://localhost:5000/${item.imgURL}`
-                src={`http://54.65.17.182:5000/${item.imgURL}`
-              }
-                className="img-wrap__bg"
-              />
+              <img src={`${URL}${item.imgURL}`} className="img-wrap__bg" />
             </div>
           );
         })}

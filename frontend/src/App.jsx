@@ -12,7 +12,6 @@ import Complete from "./pages/complete/index";
 import Login from "./pages/login/index";
 import Signup from "./pages/signup/index";
 
-
 function App() {
   return (
     <Routes>

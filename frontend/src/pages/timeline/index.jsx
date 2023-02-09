@@ -11,6 +11,8 @@ import Button from "../../components/button/index";
 import { Container } from "./style";
 
 const Index = () => {
+  const URL = process.env.REACT_APP_URL;
+
   const [timelines, setTimelines] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -38,10 +40,7 @@ const Index = () => {
               <Link to={`/detail?timeline_no=${timeline._id}`}>
                 <img
                   key={index}
-                  src={
-                    //`http://localhost:5000/${timeline.bid.imgURL}`
-                    `http://54.65.17.182:5000/${timeline.bid.imgURL}`
-                  }
+                  src={`${URL}${timeline.bid.imgURL}`}
                   alt="이미지 없음"
                   width="90%"
                   height="300"
