@@ -38,7 +38,9 @@ const Index = () => {
       const res = await axios.post(`/api/timelines/create`, api_params);
       if (res.data.success) {
         handleCopyClipBoard(
+
           `${DOMAIN}?timeline_no=${res.data.timelines[0]._id}`
+
         );
       }
     } catch (err) {
