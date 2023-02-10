@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { Color } from "../../style";
 
+const URL = process.env.REACT_APP_URL;
+
 export const Container = styled.div`
   width: 100%;
   padding: 0 20px 20px;
@@ -33,11 +35,7 @@ export const Container = styled.div`
     height: 520px;
     margin-bottom: 20px;
     position: relative;
-    background-image: url(${(props) =>
-    //`http://localhost:5000/${props.bg}`
-    `http://54.65.17.182:5000/${props.bg}`
-
-  });
+    background-image: url(${(props) => `${URL}${props.bg}`});
     background-size: 100%;
     & > .img-wrap__bg {
       width: 100%;
