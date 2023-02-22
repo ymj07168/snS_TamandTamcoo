@@ -15,7 +15,12 @@ mongoose
 mongoose.set("strictQuery", false);
 
 const cors = require('cors');
-app.use(cors(['https://tamandtamcoo.vercel.app/', 'http://tamandtamcoo.vercel.app/']));
+app.use(cors({
+  credentials: true,
+  origin: ['https://tamandtamcoo.vercel.app/', 'http://tamandtamcoo.vercel.app/'],
+  optionsSuccessStatus: 200,
+})
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
